@@ -7,10 +7,29 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= button_to "ログアウト", logout_path, method: :post %>
+    
+      <% current_user = User.find_by(id: session[:user_id]) %>
+      <% if @current_user%>
+      <li>
+      <%= current_user.name %>
+      </li>
+      <% end %>
+   
+      
+    </header>
+      <% if flash[:notice] %>
+        <div class="flash">
+        <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <%= yield %>
+    <footer>
+      <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

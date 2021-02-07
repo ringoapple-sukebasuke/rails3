@@ -1,0 +1,13 @@
+<div class = room_show>
+  <table>
+    <tr>
+      <th>ルーム名</th>
+      <td><%= @room.room_name %></td>
+    </tr>
+    <tr>
+      <th>料金</th>
+      <td><%= @room.room_price %></td>
+    </tr>
+    <p><%= link_to "予約する", new_reservation_path	%></p>
+  </table>
+</div> 
