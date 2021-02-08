@@ -8,6 +8,10 @@
       <th>料金</th>
       <td><%= @room.room_price %></td>
     </tr>
-    <p><%= link_to "予約する", new_reservation_path	%></p>
   </table>
+  <div>
+      <ul>
+        <%= link_to "登録済みルーム一覧", rooms_path %>
+      </ul>
+    </div>
 </div> 

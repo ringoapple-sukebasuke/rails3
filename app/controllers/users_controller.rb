@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confrimation))
     if @user.save
-      session[:user_id] = @user.user_id
+      session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to user_path(@user)
     else
