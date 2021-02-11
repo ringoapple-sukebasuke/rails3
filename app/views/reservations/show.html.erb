@@ -1,0 +1,22 @@
+<h2>予約完了</h2>
+
+<div class = reservation_show>
+<table>
+<tr>
+  <th>予約した部屋</th>
+  <td><%= @reservation.room_name %></td>
+</tr>
+<tr>
+  <th>開始日</th>
+  <td><%= @reservation.start_day %></td>
+</tr>
+<tr>
+  <th>終了日</th>
+  <td><%= @reservation.end_day %></td>  
+</tr>
+<tr>
+  <th>価格</th>
+  <td><%= @reservation.total_price %></td>  
+</tr>
+</table>
+</div>

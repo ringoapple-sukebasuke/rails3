@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get "login", to: "users#login_form"
   post "login", to: "users#login"
   post "logout", to: "users#logout"
+
+  post "rooms/:id/reservations/confirm" => "reservations#confirm"
   
   resources :users
   resources :rooms
+  resources :reservations
+
 end

@@ -1,4 +1,5 @@
 <div class = room_show>
+
   <table>
     <tr>
       <th>ルーム名</th>
@@ -9,9 +10,18 @@
       <td><%= @room.room_price %></td>
     </tr>
   </table>
-  <div>
-      <ul>
-        <%= link_to "登録済みルーム一覧", rooms_path %>
-      </ul>
-    </div>
-</div> 
+  
+
+<%= form_for @reservation ,url: "/rooms/#{@room.id}/reservations/confirm" do |f| %>
+  <div class="form-group">
+
+    <%= f.date_field :start_day ,class:"profile_textfield form-control",value: Time.now.strftime("%Y-%m-%d") %>
+
+    <%= f.label :end_day%>
+    <%= f.date_field :end_day ,class:"profile_textfield form-control",value: Time.now.tomorrow.strftime("%Y-%m-%d") %>
+
+    <%= f.label :people%>
+    <%= f.number_field :people ,class:"profile_textfield form-control",value: 1 %> <br>
+    <button type="submit" class="btn btn-primary">予約確認へ進む</button>
+  </div>
+<% end %>

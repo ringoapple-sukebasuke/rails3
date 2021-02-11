@@ -24,6 +24,12 @@
       <li>
       <%= link_to "登録済みルーム一覧", rooms_path %>
       </li>
+      <li>
+      <%= link_to "予約済みルーム一覧", reservations_path %>
+      </li>
+      <li>
+      <%= link_to "設定", user_path(@current_user) %>
+      </li>
 
     <% else %>
       <li>
