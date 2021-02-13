@@ -1,8 +1,23 @@
 <div class = top-wrapper>
-  <div class = main-serch>
+  <div class = main-search>
     <h2>Potepan Shareでまだ体験したことのない旅をしよう</h2>
-    <div class = "serch-field">
+    <div class = "search-field">
       <p>エリア</p>
+      <%= form_with( url: search_rooms_path, class: 'search_form', method: :get, local:true) do |f| %>
+        <%= f.text_field :search, class: 'field',value: params[:search], placeholder: "東京", class: "main-input"%>
+        <%= f.submit '探す', class: "main-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class = area-index-wrapper>
+  <h2>おすすめのエリア</h2>
+  <div class = areas>
+    <div class = area>
+      <div class = area-image>
+        <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg" alt="tokyo">
+        <p><%= link_to "東京", "/search?search=東京&commit=探す" %></p>
+      </div>
     </div>
   </div>
 </div>

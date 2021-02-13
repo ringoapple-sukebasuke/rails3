@@ -21,4 +21,10 @@ class RoomsController < ApplicationController
   def index
     @room = @current_user.rooms.all
   end
+
+  def search
+    @rooms = Room.search_area(params[:search_area])
+    @rooms = Room.search_keyword(params[:search_keyword])
+
+  end
 end

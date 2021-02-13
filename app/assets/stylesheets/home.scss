@@ -1,3 +1,77 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.top-wrapper{
+  padding: 180px 160px;
+  background-image: url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+  background-size: cover;
+}
+
+.main-search{
+  border-radius: 5px;
+  background-color: white;
+  width: 45%;
+  height: 250px;
+  padding: 25px 20px;
+  letter-spacing: 3px;
+}
+
+.search-field{
+  margin: 25px 20px;
+}
+.search-field p{
+  font-size: 13px;
+}
+
+.main-input{
+  border: 0.5px solid lightgray;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  margin: 10px 0px 30px 0px;
+
+}
+::placeholder{
+  padding: 5px 0px 5px 10px;
+}
+
+.main-btn{
+  width: 100%;
+  padding: 5px 0px;
+  font-size: 15px;
+  background-color: dodgerblue;
+  border: 0.5px solid steelblue;
+  border-radius: 5px;
+  color: white;
+
+}
+
+/*lesson-wrapper*/
+.area-index-wrapper{
+  width: 100%;
+  height: auto;
+  padding-bottom: 60px;
+}
+.areas{
+  margin: 20px 100px 30px 100px;
+}
+.area{
+  float: left;
+}
+.area-image{
+  position: relative;
+}
+.area-image img{
+  width: 100%;
+  height: 360px;
+  border-radius: 5px;
+  margin: 15px 25px 25px 35px;
+  object-fit: cover;
+}
+.area-image p{
+  position: absolute;
+  color: white;
+  font-size: 15px;
+  top: 80%;
+  left: 50%;
+}

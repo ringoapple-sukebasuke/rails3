@@ -11,43 +11,68 @@
 
   <body>
     <header>
-    <% if @current_user%>
-      <li>
-      <%= @current_user.name %>
-      </li>
-      <li>
-      <%= button_to "ログアウト", logout_path, method: :post %>
-      </li>
-      <li>
-      <%= link_to "ルーム登録", new_room_path %>
-      </li>
-      <li>
-      <%= link_to "登録済みルーム一覧", rooms_path %>
-      </li>
-      <li>
-      <%= link_to "予約済みルーム一覧", reservations_path %>
-      </li>
-      <li>
-      <%= link_to "設定", user_path(@current_user) %>
-      </li>
-
-    <% else %>
-      <li>
-      <%= link_to "ログイン", login_path %>
-      </li>
-      <li>
-      <%= link_to "新規登録", new_user_path %>
-      </li>
-    <% end %>
+      <div class = "header-left">
+        <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), "/" %>
       
+        <div class = "header-search">
+          <%= form_with( url: search_rooms_path, class: 'search_form', method: :get, local:true) do |f| %>
+            <%= f.text_field :search_area, class: 'field',value: params[:search], placeholder: "エリア", class: "topleft-input"%>
+            <%= f.submit '探す', class: "main-btn" %>
+          <% end %>
+        </div>
+
+        <div class = "header-search">
+          <%= form_with( url: search_rooms_path, class: 'search_form_topleft', method: :get, local:true) do |f| %>
+            <%= f.text_field :search_keyword, class: 'field',value: params[:search], placeholder: "キーワード", class: "topleft-input"%>
+            <%= f.submit '検索'%>
+          <% end %>
+        </div>
+      </div>
+
+      <div class = "header-rigth">
+        <% if @current_user%>
+          <li>
+          <%= @current_user.name %>
+          </li>
+        
+          <li>
+          <%= button_to "ログアウト", logout_path, method: :post %>
+          </li>
+          <li>
+          <%= link_to "ルーム登録", new_room_path %>
+          </li>
+          <li>
+          <%= link_to "登録済みルーム一覧", rooms_path %>
+          </li>
+          <li>
+          <%= link_to "予約済みルーム一覧", reservations_path %>
+          </li>
+          <li>
+          <%= link_to "設定", user_path(@current_user) %>
+          </li>
+        
+        <% else %>
+          <li>
+          <%= link_to "ログイン", login_path %>
+          </li>
+          <li>
+          <%= link_to "新規登録", new_user_path %>
+          </li>
+        <% end %>
+      </div>
       
     </header>
+
       <% if flash[:notice] %>
         <div class="flash">
         <%= flash[:notice] %>
         </div>
       <% end %>
+      
+    <div class = "container">
       <%= yield %>
+    </div>
+
     <footer>
       <p>© 2020 POTEPAN.INC.</p>
     </footer>

@@ -12,7 +12,7 @@
     </tr>
   <% @reservations.each do |reservation| %>
     <tr>
-      <td><%= reservation.room_image %></td>
+      <td><img src="<%= reservation.room_image %>" width="100" %></td>
       <td><%= link_to reservation.room_name, "/rooms/#{reservation.room_id}" %></td>
       <td><%= reservation.room_introduction %></td>
       <td><%= reservation.total_price %></td>

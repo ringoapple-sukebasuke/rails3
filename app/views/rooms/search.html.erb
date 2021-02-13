@@ -1,0 +1,20 @@
+<table>
+    <% @rooms.each do |room| %>
+      <td><img src="<%= room.room_image %>" width="100"></td>
+      <tr>
+        <th>ルーム名</th>
+        <td><%= room.room_name %></td>
+      </tr>
+      <tr>
+        <th>エリア</th>
+        <td><%= room.room_address %></td>
+      </tr>
+      <tr>
+        <th>料金</th>
+        <td><%= room.room_price %></td>
+      </tr>
+      <tr>
+        <td><%= link_to "詳細を見る", room_path(room.id) %></td>
+      </tr>
+    <% end %>
+    </table>
